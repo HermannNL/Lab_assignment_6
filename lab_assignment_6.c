@@ -1,8 +1,32 @@
+#include <stdlib.h>
 #include <stdio.h>
 
 int search(int numbers[], int low, int high, int value) 
 {
-	return -1;
+	int midVal = (high + low) / 2; //avg of the indexes
+	
+	if (high < low)
+	{
+		return -1;
+	}
+
+	if (numbers[midVal] == value)
+	{
+		return midVal;
+	}
+	else if (value < numbers[midVal])
+	{
+		search(numbers, low, midVal-1, value);
+	}
+	else 
+	{
+		search(numbers, midVal+1, high, value);
+	}	
+	
+	
+		
+	
+	
 }
 
 void printArray(int numbers[], int sz)
